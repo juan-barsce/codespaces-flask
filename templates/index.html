@@ -4,7 +4,7 @@
 
 <body>
     <div class="App">
-        <header class="App-header">
+        <header class="App-header"> <!-- this header defines the styled block -->
             <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
             <p>
                 GitHub Codespaces <span class="heart">♥️</span> Flask
@@ -12,7 +12,19 @@
             <p class="small">
                 Edit <code>templates/index.html</code> and refresh to see your changes!
             </p>
+
+            <form method="post" action="/">  <!-- form is used to collect input. See: https://www.w3schools.com/html/html_forms.asp -->
+                <label for="value_to_predict">Prediction value:</label><br>
+                <input type="text" id="value_to_predict" name="value_to_predict"><br>
+                <input type="submit" value="Predict"/>
+            </form>
+
+            {% if predicted %}
+                <p> {{predicted}} </p>
+            {% endif %}
+
         </header>
+        <p> Hello without header </p>
     </div>
 </body>
 
